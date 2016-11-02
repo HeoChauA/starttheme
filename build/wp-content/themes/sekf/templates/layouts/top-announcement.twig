@@ -1,0 +1,15 @@
+{% if nimbus_get_option('nimbus_example_content') == "on" %}
+  {% set default_data = true %}
+{% else %}
+  {% set default_data = false %}
+{% endif %}
+
+{% set announcement = nimbus_get_option('nimbus_announcement_1', default_data) %}
+{% if announcement != '' %}
+<div id="notification-top" class="notification-info collapse in">
+    <div class="container">
+    <button type="button" class="close" data-toggle="collapse" data-target="#notification-top"><i class="fa fa-times-circle"></i></button>
+    {{ announcement }}
+    </div>
+</div>
+{% endif %}
